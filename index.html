@@ -1,785 +1,171 @@
 <!DOCTYPE html>
-<html lang="es">
-
+<html lang="es" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta name="description" content="Desarrollo software y automatizaciones para empresas modernas.">
-    <meta name="keywords" content="desarrollo web, automatización contable, software empresarial, apps móviles">
-    <meta name="author" content="JonasTox">
-    <meta name="robots" content="index, follow">
-
-    <meta property="og:title" content="JonasTox | Desarrollador de Software">
-    <meta property="og:description" content="Software y automatizaciones para empresas modernas.">
+    <meta name="description" content="Jonathan Valdivia Castillo: contador público colegiado y desarrollador de software en Arequipa, Perú. Experiencia en finanzas, SAP, logística y automatización.">
+    <meta name="author" content="Jonathan Eduardo Valdivia Castillo">
+    <meta name="theme-color" content="#f7f8f5">
+    <meta property="og:title" content="Jonathan Valdivia | Finanzas, software y soluciones de negocio">
+    <meta property="og:description" content="Criterio financiero. Soluciones digitales. Conoce mi experiencia, formación y proyectos de software aplicado al negocio.">
     <meta property="og:type" content="website">
-
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-    <meta http-equiv="Content-Security-Policy" content="
-    default-src 'self';
-    img-src 'self' data: https:;
-    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com;
-    font-src https://fonts.gstatic.com https://cdnjs.cloudflare.com;
-    script-src 'self' 'unsafe-inline';
-    connect-src 'self';
-    frame-ancestors 'none';
-    ">
-
-    <title>JonasTox | Desarrollador de Software</title>
-
+    <meta property="og:locale" content="es_PE">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action mailto:;">
+    <title>Jonathan Valdivia | Finanzas & Desarrollo de Software</title>
+    <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;450;500;550;600;650;700&family=Manrope:wght@400;500;600;650;700;750;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
+    <script src="js/main.js" defer></script>
 </head>
-
 <body>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+    <svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+        <symbol id="i-external" viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10"/></symbol>
+        <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12m-5-5 5 5 5-5M5 16v5h14v-5"/></symbol>
+        <symbol id="i-code" viewBox="0 0 24 24"><path d="m8 6-6 6 6 6m8-12 6 6-6 6M14 3l-4 18"/></symbol>
+        <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 3v17h17M8 15l4-5 4 2 5-7"/></symbol>
+        <symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 3 10 5-10 5L2 8l10-5ZM2 12l10 5 10-5M2 16l10 5 10-5"/></symbol>
+        <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+        <symbol id="i-pin" viewBox="0 0 24 24"><path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 1 1 14 0Z"/><circle cx="12" cy="10" r="2"/></symbol>
+        <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 1v2m0 18v2M1 12h2m18 0h2M4.2 4.2l1.4 1.4m12.8 12.8 1.4 1.4m0-15.6-1.4 1.4M5.6 18.4l-1.4 1.4"/></symbol>
+        <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 13A9 9 0 0 1 11 3 9 9 0 1 0 21 13Z"/></symbol>
+        <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="13" height="13" rx="2"/><path d="M16 8V3H3v13h5"/></symbol>
+        <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+        <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
+    </svg>
     <header class="header" id="header">
-        <nav class="nav container">
-            <a href="#" class="nav-logo">
-                <span class="logo-icon"><i class="fas fa-code"></i></span>
-                <span class="logo-text">JonasTox</span>
-            </a>
-
+        <nav class="nav container" aria-label="Navegación principal">
+            <a class="brand" href="#inicio" aria-label="Jonathan Valdivia, inicio"><span class="brand-mark">jv<span>.</span></span><span class="brand-name">Jonathan Valdivia<span>FINANZAS & TECNOLOGÍA</span></span></a>
             <div class="nav-menu" id="nav-menu">
-                <ul class="nav-list">
-                    <li class="nav-item">
-                        <a href="#inicio" class="nav-link active-link">Inicio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#sobre-mi" class="nav-link">Sobre Mí</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#servicios" class="nav-link">Servicios</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#tecnologias" class="nav-link">Tecnologías</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#proyectos" class="nav-link">Proyectos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#contacto" class="nav-link">Contacto</a>
-                    </li>
-                </ul>
-
-                <div class="nav-close" id="nav-close">
-                    <i class="fas fa-times"></i>
-                </div>
+                <a class="nav-link" href="#sobre-mi">Perfil</a>
+                <a class="nav-link" href="#experiencia">Experiencia</a>
+                <a class="nav-link" href="#proyectos">Proyectos</a>
+                <a class="nav-link" href="#servicios">Servicios</a>
+                <a class="nav-contact" href="#contacto">Conversemos <svg class="icon"><use href="#i-external"/></svg></a>
             </div>
-
             <div class="nav-actions">
-                <button class="theme-toggle" id="theme-toggle" aria-label="Cambiar tema">
-                    <i class="fas fa-moon" id="theme-icon"></i>
-                </button>
-
-                <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menú de navegación">
-                    <i class="fas fa-bars"></i>
-                </button>
+                <button class="icon-button theme-toggle" id="theme-toggle" type="button" aria-label="Activar tema oscuro" aria-pressed="false"><svg class="icon moon-icon"><use href="#i-moon"/></svg><svg class="icon sun-icon"><use href="#i-sun"/></svg></button>
+                <button class="icon-button nav-toggle" id="nav-toggle" type="button" aria-label="Abrir menú" aria-controls="nav-menu" aria-expanded="false"><svg class="icon menu-icon"><use href="#i-menu"/></svg><svg class="icon close-icon"><use href="#i-close"/></svg></button>
             </div>
         </nav>
     </header>
-
-    <main class="main">
-        <section class="hero" id="inicio">
-            <div class="hero-bg">
-                <div class="hero-particles" id="particles"></div>
-                <div class="hero-gradient"></div>
+    <main id="contenido">
+        <section class="hero container" id="inicio" aria-labelledby="hero-title">
+            <div class="hero-content">
+                <p class="eyebrow"><span class="status-dot"></span> CONTADOR PÚBLICO COLEGIADO + DESARROLLADOR</p>
+                <h1 id="hero-title">Criterio financiero.<br>Soluciones <span class="serif-accent">digitales.</span></h1>
+                <p class="hero-intro">Soy Jonathan Valdivia. Conecto la experiencia en finanzas y operaciones con el desarrollo de software para resolver problemas reales de negocio.</p>
+                <div class="hero-actions"><a class="button button-primary" href="#proyectos">Explorar mi trabajo <svg class="icon"><use href="#i-arrow"/></svg></a><a class="text-link cv-link" href="assets/docs/Jonathan-Valdivia-CV.pdf" download>Descargar CV <svg class="icon"><use href="#i-download"/></svg></a></div>
+                <div class="hero-meta"><span><svg class="icon"><use href="#i-pin"/></svg> Arequipa, Perú</span><span class="meta-divider"></span><span>Abierto a proyectos y oportunidades</span></div>
             </div>
-
-            <div class="hero-container container">
-                <div class="hero-content">
-
-                    <div class="hero-badge">
-                        <span class="badge-dot"></span>
-                        Disponible para proyectos freelance
-                    </div>
-
-                    <h1 class="hero-title">
-                        Desarrollo software y automatizaciones
-                        para empresas modernas.
-                    </h1>
-
-                    <p class="hero-description">
-                        Combino tecnología y conocimiento financiero para crear soluciones rápidas,
-                        escalables y enfocadas en resultados reales.
-                    </p>
-
-                    <div class="hero-buttons">
-                        <a href="#contacto" class="btn btn-primary">
-                            <i class="fas fa-paper-plane"></i>
-                            Hablemos de tu proyecto
-                        </a>
-
-                        <a href="#proyectos" class="btn btn-secondary">
-                            <i class="fas fa-folder-open"></i>
-                            Ver proyectos
-                        </a>
-                    </div>
-
-                    <div class="hero-highlight">
-                        <span>
-                            <i class="fab fa-google-play"></i>
-                            Aplicación publicada en Play Store
-                        </span>
-                    </div>
-
-                </div>
-
-                <div class="hero-visual">
-                    <div class="hero-image-wrapper">
-                        <div class="hero-image-border"></div>
-                        <div class="hero-image-container">
-                            <div class="hero-illustration">
-                                <div class="code-window">
-                                    <div class="code-header">
-                                        <span class="code-dot red"></span>
-                                        <span class="code-dot yellow"></span>
-                                        <span class="code-dot green"></span>
-                                    </div>
-                                    <div class="code-content">
-                                        <span class="code-keyword">const</span>
-                                        <span class="code-variable"> profesional</span>
-                                        <span class="code-operator"> = {</span><br>
-                                        <span class="code-tab"></span><span class="code-property">contabilidad</span>
-                                        <span class="code-operator">:</span>
-                                        <span class="code-value">"experto"</span>
-                                        <span class="code-operator">,</span><br>
-                                        <span class="code-tab"></span><span class="code-property">desarrollo</span>
-                                        <span class="code-operator">:</span>
-                                        <span class="code-value">"full-stack"</span>
-                                        <span class="code-operator">,</span><br>
-                                        <span class="code-tab"></span><span class="code-property">innovacion</span>
-                                        <span class="code-operator">:</span>
-                                        <span class="code-value">"constante"</span><br>
-                                        <span class="code-operator">};</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="hero-floating-card card-1">
-                        <i class="fas fa-chart-line"></i>
-                        <span>Dashboard</span>
-                    </div>
-                    <div class="hero-floating-card card-2">
-                        <i class="fas fa-mobile-alt"></i>
-                        <span>Apps Móviles</span>
-                    </div>
-                    <div class="hero-floating-card card-3">
-                        <i class="fas fa-calculator"></i>
-                        <span>Automatización</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="hero-scroll">
-                <a href="#sobre-mi" class="scroll-link">
-                    <span class="scroll-text">Scroll</span>
-                    <i class="fas fa-chevron-down"></i>
-                </a>
+            <div class="hero-visual" aria-label="Mi enfoque: conectar el conocimiento del negocio con la tecnología">
+                <div class="visual-top"><span class="mini-label">LA CONEXIÓN QUE APORTO</span><span class="visual-index">01 / JV</span></div>
+                <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+                <span class="visual-axis axis-top">VISIÓN DE NEGOCIO</span>
+                <div class="connection-art" aria-hidden="true"><span class="art-bracket">{</span><span class="art-ampersand">&</span><span class="art-bracket">}</span></div>
+                <span class="visual-axis axis-bottom">CAPACIDAD TECNOLÓGICA</span>
+                <div class="visual-bottom"><p>Entender el proceso.<br><strong>Construir la solución.</strong></p><span class="visual-arrow"><svg class="icon"><use href="#i-external"/></svg></span></div>
+                <div class="visual-tag"><span class="status-dot"></span> Finanzas con visión digital</div>
             </div>
         </section>
+        <div class="expertise-strip"><div class="container expertise-inner"><span class="strip-label">UNA VISIÓN INTEGRAL</span><span>Contabilidad & finanzas</span><span class="strip-plus">+</span><span>Operaciones & logística</span><span class="strip-plus">+</span><span>Software & automatización</span></div></div>
 
-        <section class="about section" id="sobre-mi">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-badge">Conoce más</span>
-                    <h2 class="section-title">Sobre Mí</h2>
-                    <p class="section-subtitle">
-                        Un profesional que une el mundo de las finanzas con la tecnología
-                    </p>
-                </div>
-
-                <div class="about-grid">
-                    <div class="about-content reveal">
-                        <h3 class="about-heading">
-                            Doble experiencia: Contabilidad y Tecnología
-                        </h3>
-                        <p class="about-text">
-                            Soy un profesional con una visión única que combina años de experiencia
-                            en el área contable y financiera con pasión por el desarrollo de software.
-                            Esta dualidad me permite entender tanto los procesos de negocio como las
-                            necesidades tecnológicas de mis clientes.
-                        </p>
-                        <p class="about-text">
-                            Mi objetivo es crear soluciones tecnológicas que simplifiquen la gestión
-                            contable, automatizen procesos repetitivos y proporcionen herramientas
-                            poderosas para la toma de decisiones basada en datos.
-                        </p>
-
-                        <div class="about-features">
-                            <div class="feature-item">
-                                <div class="feature-icon">
-                                    <i class="fas fa-check"></i>
-                                </div>
-                                <div class="feature-content">
-                                    <h4>Conocimiento Financiero</h4>
-                                    <p>Experiencia sólida en contabilidad, impuestos y análisis financiero</p>
-                                </div>
-                            </div>
-                            <div class="feature-item">
-                                <div class="feature-icon">
-                                    <i class="fas fa-check"></i>
-                                </div>
-                                <div class="feature-content">
-                                    <h4>Desarrollo de Software</h4>
-                                    <p>Creación de aplicaciones web, móviles y sistemas empresariales</p>
-                                </div>
-                            </div>
-                            <div class="feature-item">
-                                <div class="feature-icon">
-                                    <i class="fas fa-check"></i>
-                                </div>
-                                <div class="feature-content">
-                                    <h4>Automatización</h4>
-                                    <p>Optimización de procesos y reducción de tareas manuales</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <a href="#contacto" class="btn btn-primary">
-                            <i class="fas fa-comments"></i>
-                            Hablemos
-                        </a>
-                    </div>
-
-                    <div class="about-image reveal">
-                        <div class="about-image-wrapper">
-                            <div class="about-card">
-                                <div class="card-icon">
-                                    <i class="fas fa-laptop-code"></i>
-                                </div>
-                                <h4>Code + Finance</h4>
-                                <p>La combinación perfecta</p>
-                            </div>
-                            <div class="about-shapes">
-                                <div class="shape shape-1"></div>
-                                <div class="shape shape-2"></div>
-                                <div class="shape shape-3"></div>
-                            </div>
-                        </div>
-                    </div>
+        <section class="section container about" id="sobre-mi" aria-labelledby="about-title">
+            <div class="section-heading"><p class="eyebrow section-number">01 / PERFIL PROFESIONAL</p><h2 id="about-title">Entiendo el negocio.<br><span class="muted">Y sé cómo llevarlo al código.</span></h2></div>
+            <div class="about-grid">
+                <div class="about-copy"><p class="lead">Mi punto de partida es el proceso, las personas y la información que necesitan para decidir.</p><p>Soy contador público colegiado por la Universidad Católica San Pablo y profesional técnico en Ingeniería de Software con Inteligencia Artificial por SENATI. Complemento esta formación con estudios de MBA en Gerencia Financiera y de Riesgos en la UNSA.</p><p>He trabajado en control de costos, liquidaciones, inventarios, compras y gestión de información en SAP y sistemas ERP. Esa experiencia me permite traducir necesidades operativas en herramientas digitales con un propósito claro.</p><a class="text-link" href="#experiencia">Conoce mi trayectoria <svg class="icon"><use href="#i-arrow"/></svg></a></div>
+                <div class="approach-list">
+                    <article class="approach-item"><span class="approach-icon"><svg class="icon"><use href="#i-chart"/></svg></span><div><h3>Criterio financiero</h3><p>Análisis de cuentas, costos operativos y control presupuestal para comprender lo que hay detrás de los datos.</p></div></article>
+                    <article class="approach-item"><span class="approach-icon"><svg class="icon"><use href="#i-layers"/></svg></span><div><h3>Experiencia en la operación</h3><p>Conocimiento directo de logística, proveedores, inventarios y controles documentarios.</p></div></article>
+                    <article class="approach-item"><span class="approach-icon"><svg class="icon"><use href="#i-code"/></svg></span><div><h3>Tecnología aplicada</h3><p>Desarrollo web y móvil, análisis de datos y automatización de tareas para simplificar el trabajo.</p></div></article>
                 </div>
             </div>
         </section>
 
-        <section class="services section" id="servicios">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-badge">Lo que hago</span>
-                    <h2 class="section-title">Servicios</h2>
-                    <p class="section-subtitle">
-                        Soluciones tecnológicas personalizadas para tu negocio
-                    </p>
+        <section class="section projects-section" id="proyectos" aria-labelledby="projects-title"><div class="container">
+            <div class="section-heading heading-with-link"><div><p class="eyebrow section-number">02 / PROYECTOS</p><h2 id="projects-title">Del conocimiento<br><span class="muted">a una solución tangible.</span></h2></div><a class="text-link" href="https://github.com/JonasValCas" target="_blank" rel="noopener noreferrer">Mi perfil en GitHub <svg class="icon"><use href="#i-external"/></svg></a></div>
+            <article class="featured-project">
+                <div class="project-art"><div class="project-art-top"><span>DIGITAL WAVE / PROYECTO PROPIO</span><span>ANDROID</span></div><div class="app-identity"><div class="app-logo"><img src="assets/images/logoprincipal.png" alt="Logotipo de PrestAgenda" width="112" height="112" loading="lazy"></div><span>PrestAgenda</span><p>Más claridad para tus finanzas.</p></div><div class="capability-map" aria-label="Áreas de la aplicación"><span><svg class="icon"><use href="#i-check"/></svg> Préstamos</span><span><svg class="icon"><use href="#i-check"/></svg> Deudas</span><span><svg class="icon"><use href="#i-check"/></svg> Reportes</span></div></div>
+                <div class="featured-copy"><span class="pill pill-live"><span class="status-dot"></span> Publicada en Google Play</span><h3>PrestAgenda</h3><p class="project-subtitle">Control financiero en tu bolsillo.</p><p>Aplicación móvil para organizar préstamos y deudas, consultar reportes y mantener la información sincronizada entre usuarios.</p><div class="project-context"><div><span>EL RETO</span><p>Hacer más sencillo el seguimiento de compromisos financieros.</p></div><div><span>MI ENFOQUE</span><p>Aplicar el conocimiento contable al desarrollo de una herramienta móvil práctica.</p></div></div><div class="project-footer"><span class="tech-tag">Android</span><a class="text-link" href="https://play.google.com/store/apps/details?id=com.digitalwave.prestagenda" target="_blank" rel="noopener noreferrer">Ver en Google Play <svg class="icon"><use href="#i-external"/></svg></a></div></div>
+            </article>
+            <article class="featured-project renta-quinta-project">
+                <div class="project-art">
+                    <div class="project-art-top"><span>DIGITAL WAVE / PROYECTO PROPIO</span><span>ANDROID</span></div>
+                    <div class="app-identity"><div class="app-logo"><img src="assets/images/renta-quinta-logo.png" alt="Logotipo de Renta Quinta" width="112" height="112" loading="lazy"></div><span>Renta Quinta</span><p>Calcula tu renta. Entiende tus retenciones.</p></div>
+                    <div class="capability-map" aria-label="Funciones de Renta Quinta"><span><svg class="icon"><use href="#i-check"/></svg> Cuarta categoría</span><span><svg class="icon"><use href="#i-check"/></svg> Quinta categoría</span><span><svg class="icon"><use href="#i-check"/></svg> Retenciones</span></div>
                 </div>
-
-                <div class="services-grid">
-                    <div class="service-card reveal">
-                        <div class="service-icon">
-                            <i class="fas fa-code"></i>
-                        </div>
-                        <h3 class="service-title">Desarrollo de Software</h3>
-                        <p class="service-description">
-                            Aplicaciones web personalizadas, sistemas de gestión y herramientas
-                            que se adaptan perfectamente a tus necesidades específicas.
-                        </p>
-                        <ul class="service-list">
-                            <li><i class="fas fa-check-circle"></i> Aplicaciones web progresivas</li>
-                            <li><i class="fas fa-check-circle"></i> Sistemas de gestión (ERP)</li>
-                            <li><i class="fas fa-check-circle"></i> APIs y integraciones</li>
-                        </ul>
-                    </div>
-
-                    <div class="service-card reveal">
-                        <div class="service-icon">
-                            <i class="fas fa-mobile-alt"></i>
-                        </div>
-                        <h3 class="service-title">Apps Móviles</h3>
-                        <p class="service-description">
-                            Aplicaciones nativas y multiplataforma para iOS y Android,
-                            diseñadas para ofrecer la mejor experiencia de usuario.
-                        </p>
-                        <ul class="service-list">
-                            <li><i class="fas fa-check-circle"></i> Apps iOS y Android</li>
-                            <li><i class="fas fa-check-circle"></i> Diseño responsivo</li>
-                            <li><i class="fas fa-check-circle"></i> Integración con APIs</li>
-                        </ul>
-                    </div>
-
-                    <div class="service-card reveal">
-                        <div class="service-icon">
-                            <i class="fas fa-calculator"></i>
-                        </div>
-                        <h3 class="service-title">Automatización Contable</h3>
-                        <p class="service-description">
-                            Optimiza tus procesos financieros con automatización inteligente
-                            que ahorra tiempo y reduce errores humanos.
-                        </p>
-                        <ul class="service-list">
-                            <li><i class="fas fa-check-circle"></i> Conciliación automática</li>
-                            <li><i class="fas fa-check-circle"></i> Generación de reportes</li>
-                            <li><i class="fas fa-check-circle"></i> Control de gastos</li>
-                        </ul>
-                    </div>
-
-                    <div class="service-card reveal">
-                        <div class="service-icon">
-                            <i class="fas fa-building"></i>
-                        </div>
-                        <h3 class="service-title">Sistemas Empresariales</h3>
-                        <p class="service-description">
-                            Plataformas integrales para gestionar inventarios, ventas,
-                            recursos humanos y más, todo en un solo lugar.
-                        </p>
-                        <ul class="service-list">
-                            <li><i class="fas fa-check-circle"></i> Gestión de inventarios</li>
-                            <li><i class="fas fa-check-circle"></i> Control de ventas</li>
-                            <li><i class="fas fa-check-circle"></i> Módulo de RRHH</li>
-                        </ul>
-                    </div>
-
-                    <div class="service-card reveal">
-                        <div class="service-icon">
-                            <i class="fas fa-chart-pie"></i>
-                        </div>
-                        <h3 class="service-title">Dashboards Financieros</h3>
-                        <p class="service-description">
-                            Visualiza tu información financiera en tiempo real con
-                            dashboards interactivos y métricas clave de negocio.
-                        </p>
-                        <ul class="service-list">
-                            <li><i class="fas fa-check-circle"></i> KPIs en tiempo real</li>
-                            <li><i class="fas fa-check-circle"></i> Gráficos interactivos</li>
-                            <li><i class="fas fa-check-circle"></i> Reportes exportables</li>
-                        </ul>
-                    </div>
-
-                    <div class="service-card reveal highlight">
-                        <div class="service-card-overlay"></div>
-                        <div class="service-icon">
-                            <i class="fas fa-rocket"></i>
-                        </div>
-                        <h3 class="service-title">¿Tienes un proyecto en mente?</h3>
-                        <p class="service-description">
-                            Transformo tus ideas en soluciones digitales funcionales.
-                            Cuéntame sobre tu proyecto y hagámoslo realidad juntos.
-                        </p>
-                        <a href="#contacto" class="btn btn-primary btn-block">
-                            <i class="fas fa-paper-plane"></i>
-                            Iniciar Proyecto
-                        </a>
-                    </div>
+                <div class="featured-copy">
+                    <span class="pill pill-review"><span class="status-dot"></span> En revisión en Google Play</span>
+                    <h3>Renta Quinta</h3>
+                    <p class="project-subtitle">Tus impuestos, con mayor claridad.</p>
+                    <p>Aplicación Android para calcular el impuesto a la renta de trabajo de cuarta y quinta categoría en Perú, y verificar si el empleador aplica correctamente la retención mensual de renta de quinta categoría.</p>
+                    <div class="project-context"><div><span>EL RETO</span><p>Ayudar a los trabajadores a comprender su impuesto a la renta y comprobar sus retenciones mensuales.</p></div><div><span>MI ENFOQUE</span><p>Conectar el conocimiento tributario con una herramienta móvil para calcular y contrastar los importes retenidos.</p></div></div>
+                    <div class="project-footer"><span class="tech-tag">Android</span><span class="project-release">En revisión para producción en Google Play</span></div>
                 </div>
+            </article>
+            <article class="featured-project rapipan-project">
+                <div class="project-art">
+                    <div class="project-art-top"><span>DESARROLLO A MEDIDA / PANADERÍA</span><span>ANDROID</span></div>
+                    <div class="app-identity"><div class="app-logo"><img src="assets/images/ic_launcher_adminpango_foreground.webp" alt="Logotipo de RapiPan" width="112" height="112" loading="lazy"></div><span>RapiPan</span><p>La gestión de tu panadería, en una aplicación.</p></div>
+                    <div class="capability-map" aria-label="Funciones de RapiPan"><span><svg class="icon"><use href="#i-check"/></svg> Ventas</span><span><svg class="icon"><use href="#i-check"/></svg> Inventarios</span><span><svg class="icon"><use href="#i-check"/></svg> Reportes</span></div>
+                </div>
+                <div class="featured-copy">
+                    <span class="pill"><span class="status-dot"></span> Solución empresarial a medida</span>
+                    <h3>RapiPan</h3>
+                    <p class="project-subtitle">Tecnología adaptada a la operación de una panadería.</p>
+                    <p>Aplicación Android a medida para una empresa de panadería, con ventas, gestión de inventarios y reportes. Un proyecto de mi portafolio enfocado en las necesidades y los procesos específicos del negocio.</p>
+                    <div class="project-context"><div><span>EL RETO</span><p>Facilitar el seguimiento de las ventas y las existencias en la operación diaria de una panadería.</p></div><div><span>MI ENFOQUE</span><p>Traducir las necesidades de la empresa en una herramienta móvil que acompañe su forma de trabajar.</p></div></div>
+                    <div class="project-footer"><span class="tech-tag">Android</span><span class="project-release">Proyecto de portafolio · Desarrollo a medida</span></div>
+                </div>
+            </article>
+        </div></section>
+
+        <section class="section container experience" id="experiencia" aria-labelledby="experience-title">
+            <div class="experience-intro"><p class="eyebrow section-number">03 / EXPERIENCIA</p><h2 id="experience-title">Una trayectoria<br>con los pies<br><span class="serif-accent">en la operación.</span></h2><p>Experiencia en empresas de alimentos, transporte, panificación y hotelería. Responsabilidad sobre información, recursos y procesos de negocio.</p><a class="text-link cv-link" href="assets/docs/Jonathan-Valdivia-CV.pdf" download>Ver trayectoria completa <svg class="icon"><use href="#i-download"/></svg></a><div class="experience-note"><span>2014 — 2023</span><p>Experiencia corporativa documentada</p></div></div>
+            <div class="timeline">
+                <article class="timeline-item"><div class="timeline-meta"><span>AGO 2022 — FEB 2023</span><span>ALIMENTOS</span></div><h3>Asistente de Almacén y Distribución</h3><p class="company">Costeño Alimentos S.A.C.</p><ul><li>Control de guías de remisión en ERP y seguimiento de inventarios valorados.</li><li>Coordinación de despachos, transportistas y reportes de discrepancias para gerencia.</li></ul><div class="timeline-tags"><span>Inventarios</span><span>ERP</span><span>Distribución</span></div></article>
+                <article class="timeline-item"><div class="timeline-meta"><span>NOV 2020 — JUL 2022</span><span>TRANSPORTE</span></div><h3>Asistente Administrativo Sénior</h3><p class="company">Racionalización Empresarial S.A. · RACIEMSA</p><ul><li>Liquidación de remuneraciones y costos de operadores según tramos y kilometraje.</li><li>Revisión de gastos de viaje, sustentos de facturación e informes ejecutivos de costos.</li></ul><div class="timeline-tags"><span>Control de costos</span><span>Liquidaciones</span><span>Auditoría de gastos</span></div></article>
+                <article class="timeline-item"><div class="timeline-meta"><span>ABR 2019 — SEP 2020</span><span>PANIFICACIÓN</span></div><h3>Jefe de Logística</h3><p class="company">Industria Panificadora Americana</p><ul><li>Gestión de compras, almacenamiento y distribución a la red de tiendas.</li><li>Negociación con proveedores y estandarización de controles de mermas y existencias.</li></ul><div class="timeline-tags"><span>Cadena de suministro</span><span>Compras</span><span>Liderazgo</span></div></article>
+                <article class="timeline-item"><div class="timeline-meta"><span>ABR 2016 — MAR 2019</span><span>TRANSPORTE</span></div><h3>Asistente de Pedidos y Entregas</h3><p class="company">RACIEMSA · Administración y Contabilidad</p><ul><li>Registro de facturas, pedidos de venta y entregas en SAP.</li><li>Conciliación de proveedores y validación de información para cierres mensuales.</li></ul><div class="timeline-tags"><span>SAP</span><span>Conciliaciones</span><span>Cierres contables</span></div></article>
+                <article class="timeline-item"><div class="timeline-meta"><span>NOV 2014 — JUL 2015</span><span>HOTELERÍA</span></div><h3>Asistente Contable / Encargado de Logística</h3><p class="company">Hoteles del Sur S.A.C. · Grupo Estelar</p><ul><li>Análisis de costos y gastos, valoración de inventarios y revisión de planillas.</li><li>Gestión de comprobantes, detracciones y documentación ante entidades públicas.</li></ul><div class="timeline-tags"><span>Contabilidad</span><span>Tributación</span><span>Almacenes</span></div></article>
             </div>
         </section>
 
-        <section class="tech section" id="tecnologias">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-badge">Herramientas</span>
-                    <h2 class="section-title">Tecnologías</h2>
-                    <p class="section-subtitle">
-                        Stack tecnológico moderno para soluciones de alto rendimiento
-                    </p>
-                </div>
-
-                <div class="tech-grid">
-                    <div class="tech-category reveal">
-                        <h3 class="tech-category-title">
-                            <i class="fas fa-layer-group"></i>
-                            Frontend
-                        </h3>
-                        <div class="tech-list">
-                            <div class="tech-item">
-                                <div class="tech-icon">
-                                    <i class="fab fa-html5"></i>
-                                </div>
-                                <span class="tech-name">HTML5</span>
-                                <span class="tech-level">Avanzado</span>
-                            </div>
-                            <div class="tech-item">
-                                <div class="tech-icon">
-                                    <i class="fab fa-css3-alt"></i>
-                                </div>
-                                <span class="tech-name">CSS3</span>
-                                <span class="tech-level">Avanzado</span>
-                            </div>
-                            <div class="tech-item">
-                                <div class="tech-icon">
-                                    <i class="fab fa-js"></i>
-                                </div>
-                                <span class="tech-name">JavaScript</span>
-                                <span class="tech-level">Avanzado</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="tech-category reveal">
-                        <h3 class="tech-category-title">
-                            <i class="fas fa-database"></i>
-                            Backend & DB
-                        </h3>
-                        <div class="tech-list">
-                            <div class="tech-item">
-                                <div class="tech-icon">
-                                    <i class="fas fa-fire"></i>
-                                </div>
-                                <span class="tech-name">Firebase</span>
-                                <span class="tech-level">Intermedio</span>
-                            </div>
-                            <div class="tech-item">
-                                <div class="tech-icon">
-                                    <i class="fas fa-database"></i>
-                                </div>
-                                <span class="tech-name">Supabase</span>
-                                <span class="tech-level">Intermedio</span>
-                            </div>
-                            <div class="tech-item">
-                                <div class="tech-icon">
-                                    <i class="fas fa-server"></i>
-                                </div>
-                                <span class="tech-name">Bases de Datos</span>
-                                <span class="tech-level">Avanzado</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="tech-category reveal">
-                        <h3 class="tech-category-title">
-                            <i class="fas fa-tools"></i>
-                            Deployment
-                        </h3>
-                        <div class="tech-list">
-                            <div class="tech-item">
-                                <div class="tech-icon">
-                                    <i class="fab fa-github"></i>
-                                </div>
-                                <span class="tech-name">GitHub Pages</span>
-                                <span class="tech-level">Avanzado</span>
-                            </div>
-                            <div class="tech-item">
-                                <div class="tech-icon">
-                                    <i class="fab fa-git-alt"></i>
-                                </div>
-                                <span class="tech-name">Git</span>
-                                <span class="tech-level">Avanzado</span>
-                            </div>
-                            <div class="tech-item">
-                                <div class="tech-icon">
-                                    <i class="fas fa-cloud"></i>
-                                </div>
-                                <span class="tech-name">Cloud Services</span>
-                                <span class="tech-level">Intermedio</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="tech-banner reveal">
-                    <div class="tech-banner-content">
-                        <i class="fas fa-lightbulb"></i>
-                        <p>
-                            <strong>Enfoque Moderno:</strong> Desarrollo aplicaciones ligeras y rápidas
-                            usando tecnologías web estándar, optimizadas para rendimiento y escalabilidad.
-                        </p>
-                    </div>
-                </div>
+        <section class="section education-section" id="formacion" aria-labelledby="education-title"><div class="container">
+            <div class="section-heading"><p class="eyebrow section-number">04 / FORMACIÓN & HERRAMIENTAS</p><h2 id="education-title">Dos disciplinas.<br><span class="muted">Una misma forma de resolver.</span></h2></div>
+            <div class="education-grid">
+                <article class="education-card"><span class="education-number">01</span><p class="education-type">TÍTULO UNIVERSITARIO · COLEGIADO</p><h3>Contador Público</h3><p>Universidad Católica San Pablo</p><span class="education-date">2009 — 2014</span><p class="education-detail">Auditoría, tributación, estados financieros bajo NIIF y control interno.</p></article>
+                <article class="education-card"><span class="education-number">02</span><p class="education-type">TÍTULO PROFESIONAL TÉCNICO</p><h3>Ingeniería de Software con Inteligencia Artificial</h3><p>SENATI</p><span class="education-date">2023 — 2025</span><p class="education-detail">Desarrollo de software, automatización y análisis de datos.</p></article>
+                <article class="education-card"><span class="education-number">03</span><p class="education-type">ESTUDIOS DE POSGRADO</p><h3>MBA · Gerencia Financiera y de Riesgos</h3><p>Universidad Nacional de San Agustín</p><span class="education-date">Desde 2020 · En curso</span><p class="education-detail">Riesgos de liquidez, mercado y crédito; valorización de empresas.</p></article>
             </div>
+            <div class="toolkit" id="tecnologias"><div><span class="mini-label">MI CAJA DE HERRAMIENTAS</span><p>Negocio y tecnología, en el mismo lenguaje.</p></div><div class="tool-groups"><div><h3>Gestión & análisis</h3><div class="tool-tags"><span>SAP R/3 · MM / FI / SD</span><span>ERP</span><span>Excel avanzado</span><span>Costos & presupuestos</span></div></div><div><h3>Desarrollo & datos</h3><div class="tool-tags"><span>Python</span><span>Java</span><span>HTML / CSS / JavaScript</span><span>Firebase</span><span>Supabase</span><span>Git / GitHub</span><span>RPA / Scripting</span></div></div></div></div>
+        </div></section>
+
+        <section class="section container services" id="servicios" aria-labelledby="services-title">
+            <div class="section-heading heading-with-link"><div><p class="eyebrow section-number">05 / CÓMO PUEDO APORTAR</p><h2 id="services-title">Soluciones que parten<br><span class="muted">de lo que tu negocio necesita.</span></h2></div><p class="heading-aside">Desde entender el proceso hasta desarrollar una herramienta que ayude a gestionarlo.</p></div>
+            <div class="service-grid">
+                <article class="service-item"><span class="service-index">01</span><svg class="icon service-icon"><use href="#i-code"/></svg><h3>Desarrollo web y móvil</h3><p>Aplicaciones y herramientas de gestión adaptadas a procesos concretos de tu negocio.</p><ul><li>Aplicaciones Android</li><li>Desarrollo web</li><li>Integración de datos</li></ul></article>
+                <article class="service-item"><span class="service-index">02</span><svg class="icon service-icon"><use href="#i-layers"/></svg><h3>Automatización de procesos</h3><p>Menos tareas repetitivas y una información más ordenada para el trabajo diario.</p><ul><li>Scripts y procesamiento de datos</li><li>Reportes y hojas de cálculo</li><li>Flujos administrativos</li></ul></article>
+                <article class="service-item"><span class="service-index">03</span><svg class="icon service-icon"><use href="#i-chart"/></svg><h3>Análisis y control de gestión</h3><p>Una mirada contable y operativa para identificar qué medir, controlar y mejorar.</p><ul><li>Análisis de costos</li><li>Control de inventarios</li><li>Reportes para decisiones</li></ul></article>
+            </div>
+            <div class="process-line"><span class="mini-label">MI FORMA DE TRABAJAR</span><div><span><b>01</b> Entender</span><svg class="icon"><use href="#i-arrow"/></svg><span><b>02</b> Proponer</span><svg class="icon"><use href="#i-arrow"/></svg><span><b>03</b> Construir</span><svg class="icon"><use href="#i-arrow"/></svg><span><b>04</b> Validar</span></div></div>
         </section>
 
-        <section class="portfolio section" id="proyectos">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-badge">Trabajo reciente</span>
-                    <h2 class="section-title">Proyectos</h2>
-                    <p class="section-subtitle">
-                        Una muestra de las soluciones que he desarrollado
-                    </p>
-                </div>
-
-                <div class="portfolio-grid">
-                    <article class="project-card reveal">
-
-                        <div class="project-image">
-
-                            <img src="assets/images/logoprincipal.png" alt="PrestAgenda">
-
-                            <div class="project-overlay">
-                                <div class="project-links">
-
-                                    <a href="https://play.google.com/store/apps/details?id=com.digitalwave.prestagenda&pcampaignid=web_share" class="project-link"
-                                        target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer"
-                                        title="Ver aplicación">
-                                        <i class="fab fa-google-play"></i>
-                                    </a>
-
-                                    <a href="https://github.com/JonasValCas" class="project-link" target="_blank"
-                                        rel="noopener noreferrer" referrerpolicy="no-referrer" title="Código fuente">
-                                        <i class="fab fa-github"></i>
-                                    </a>
-
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="project-content">
-
-                            <span class="project-tag featured-tag">
-                                Aplicación en Producción
-                            </span>
-
-                            <h3 class="project-title">PrestAgenda</h3>
-
-                            <p class="project-description">
-                                Aplicación móvil enfocada en control financiero,
-                                gestión de prestamos y deudas.
-                            </p>
-
-                            <div class="project-features">
-                                <span>✔ Gestión de prestamos</span>
-                                <span>✔ Reportes</span>
-                                <span>✔ Sincronización entre usuarios</span>
-                            </div>
-
-                            <div class="project-tech">
-                                <span>Android</span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="project-card reveal">
-                        <div class="project-image">
-                            <div class="project-placeholder">
-                                <i class="fas fa-mobile-alt"></i>
-                            </div>
-                            <div class="project-overlay">
-                                <div class="project-links">
-                                    <a href="#" class="project-link" title="Ver demo">
-                                        <i class="fas fa-external-link-alt"></i>
-                                    </a>
-                                    <a href="#" class="project-link" title="Código fuente">
-                                        <i class="fab fa-github"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-content">
-                            <span class="project-tag">App Móvil</span>
-                            <span class="project-status developing">
-                                En desarrollo
-                            </span>
-                            <h3 class="project-title">ContaControl</h3>
-                            <p class="project-description">
-                                Aplicación móvil para gestión de impuestos.
-                            </p>
-                            <div class="project-tech">
-                                <span>Android e iOS</span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="project-card reveal">
-                        <div class="project-image">
-                            <img src="assets/images/ic_launcher_adminpango_foreground.webp" alt="PrestAgenda">
-                            <div class="project-placeholder">
-                                <i class="fas fa-robot"></i>
-                            </div>
-                            <div class="project-overlay">
-                                <div class="project-links">
-                                    <a href="#" class="project-link" title="Ver demo">
-                                        <i class="fas fa-external-link-alt"></i>
-                                    </a>
-                                    <a href="#" class="project-link" title="Código fuente">
-                                        <i class="fab fa-github"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-content">
-                            <span class="project-tag">App Móvil</span>
-                            <span class="project-status developing">
-                                En desarrollo
-                            </span>
-                            <h3 class="project-title">RapiPan</h3>
-                            <p class="project-description">
-                                App de ventas para panaderías, con gestión de inventarios y reportes.
-                            </p>
-                            <div class="project-tech">
-                                <span>Android</span>
-                            </div>
-                        </div>
-                    </article>
-
-                </div>
+        <section class="contact-section" id="contacto" aria-labelledby="contact-title"><div class="container contact-grid">
+            <div class="contact-copy"><p class="eyebrow">06 / CONVERSEMOS</p><h2 id="contact-title">Tu próximo reto<br>puede empezar con<br><span class="serif-accent">una conversación.</span></h2><p>¿Buscas desarrollar una herramienta, mejorar un proceso o sumar un perfil que entienda finanzas y tecnología? Cuéntame qué necesitas.</p><a class="contact-email" href="mailto:contaled.vct@gmail.com">contaled.vct@gmail.com <svg class="icon"><use href="#i-external"/></svg></a><div class="contact-socials"><a href="https://wa.me/51970162760" target="_blank" rel="noopener noreferrer">WhatsApp <svg class="icon"><use href="#i-external"/></svg></a><a href="https://www.linkedin.com/in/jonathan-valdivia-castillo-contadev/" target="_blank" rel="noopener noreferrer">LinkedIn <svg class="icon"><use href="#i-external"/></svg></a><a href="https://github.com/JonasValCas" target="_blank" rel="noopener noreferrer">GitHub <svg class="icon"><use href="#i-external"/></svg></a></div><p class="contact-location"><svg class="icon"><use href="#i-pin"/></svg> Arequipa, Perú</p></div>
+            <div class="contact-form-panel"><h3>Hablemos de tu idea.</h3><p>Completa los datos para preparar tu correo.</p>
+                <form id="contact-form" action="mailto:contaled.vct@gmail.com" method="get">
+                    <div class="form-row"><div class="form-field"><label for="name">Tu nombre</label><input id="name" name="name" autocomplete="name" placeholder="¿Cómo te llamas?" maxlength="100" required></div><div class="form-field"><label for="email">Tu correo</label><input type="email" id="email" name="email" autocomplete="email" placeholder="nombre@empresa.com" maxlength="254" required></div></div>
+                    <div class="form-field"><label for="subject">¿Qué tienes en mente?</label><select id="subject" name="subject"><option value="Un proyecto de software">Un proyecto de software</option><option value="Automatización de procesos">Automatización de procesos</option><option value="Análisis y control de gestión">Análisis y control de gestión</option><option value="Una oportunidad profesional">Una oportunidad profesional</option><option value="Una colaboración">Una colaboración</option></select></div>
+                    <div class="form-field"><label for="message">Cuéntame un poco más</label><textarea id="message" name="body" rows="4" placeholder="El reto, tu idea o lo que te gustaría mejorar…" maxlength="3000" required></textarea></div>
+                    <button class="button button-primary" type="submit">Preparar correo <svg class="icon"><use href="#i-arrow"/></svg></button><p class="form-note">Se abrirá tu aplicación de correo con el mensaje listo para enviar.</p><p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+                </form>
             </div>
-        </section>
-
-        <section class="contact section" id="contacto">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-badge">Conectemos</span>
-                    <h2 class="section-title">Contacto</h2>
-                    <p class="section-subtitle">
-                        ¿Tienes un proyecto en mente? ¡Hablemos!
-                    </p>
-                </div>
-
-                <div class="contact-grid">
-                    <div class="contact-info reveal">
-                        <h3 class="contact-heading">
-                            ¡Hagamos realidad tu idea!
-                        </h3>
-                        <p class="contact-text">
-                            Estoy disponible para proyectos freelance, colaboraciones y
-                            oportunidades de trabajo. Contáctame por cualquiera de estos canales.
-                        </p>
-
-                        <div class="contact-links">
-                            <a href="https://whatsapp.com/channel/0029VbCxqYp6buMB04dsAU37" class="contact-link" target="_blank"
-                                rel="noopener noreferrer">
-                                <div class="contact-icon whatsapp">
-                                    <i class="fab fa-whatsapp"></i>
-                                </div>
-                                <div class="contact-details">
-                                    <span class="contact-label">WhatsApp</span>
-                                    <span class="contact-value">Digital Wave</span>
-                                </div>
-                                <i class="fas fa-arrow-right contact-arrow"></i>
-                            </a>
-
-                            <a href="mailto:contaled.vct@gmail.com" class="contact-link">
-                                <div class="contact-icon email">
-                                    <i class="fas fa-envelope"></i>
-                                </div>
-                                <div class="contact-details">
-                                    <span class="contact-label">Correo Electrónico</span>
-                                    <span class="contact-value">contaled.vct@gmail.com</span>
-                                </div>
-                                <i class="fas fa-arrow-right contact-arrow"></i>
-                            </a>
-
-                            <a href="https://www.linkedin.com/in/jonathan-valdivia-castillo-contadev/" class="contact-link" target="_blank"
-                                rel="noopener noreferrer">
-                                <div class="contact-icon linkedin">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </div>
-                                <div class="contact-details">
-                                    <span class="contact-label">LinkedIn</span>
-                                    <span class="contact-value">linkedin.com/in/jonathan-valdivia-castillo-contadev</span>
-                                </div>
-                                <i class="fas fa-arrow-right contact-arrow"></i>
-                            </a>
-
-                            <a href="https://github.com/JonasValCas" class="contact-link" target="_blank"
-                                rel="noopener noreferrer">
-                                <div class="contact-icon github">
-                                    <i class="fab fa-github"></i>
-                                </div>
-                                <div class="contact-details">
-                                    <span class="contact-label">GitHub</span>
-                                    <span class="contact-value">github.com/JonasValCas</span>
-                                </div>
-                                <i class="fas fa-arrow-right contact-arrow"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="contact-form-wrapper reveal">
-                        <form class="contact-form" id="contact-form">
-                            <div class="form-group">
-                                <label for="name">Nombre</label>
-                                <input type="text" id="name" name="name" placeholder="Tu nombre" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Correo Electrónico</label>
-                                <input type="email" id="email" name="email" placeholder="tu@email.com" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="subject">Asunto</label>
-                                <input type="text" id="subject" name="subject" placeholder="¿Sobre qué quieres hablar?">
-                            </div>
-                            <div class="form-group">
-                                <label for="message">Mensaje</label>
-                                <textarea id="message" name="message" rows="5"
-                                    placeholder="Cuéntame sobre tu proyecto..." required></textarea>
-                                <input type="text" name="website" class="hidden" tabindex="-1" autocomplete="off">
-                            </div>
-                            <button type="submit" class="btn btn-primary btn-block">
-                                <i class="fas fa-paper-plane"></i>
-                                Enviar Mensaje
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
+        </div></section>
     </main>
-
-    <footer class="footer">
-        <div class="footer-bg"></div>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <a href="#" class="footer-logo">
-                        <span class="logo-icon"><i class="fas fa-code"></i></span>
-                        <span class="logo-text">JonasTox</span>
-                    </a>
-                    <p class="footer-tagline">
-                        Transformando ideas en soluciones digitales innovadoras.
-                    </p>
-                </div>
-
-                <div class="footer-links">
-                    <h4>Enlaces Rápidos</h4>
-                    <ul>
-                        <li><a href="#inicio">Inicio</a></li>
-                        <li><a href="#sobre-mi">Sobre Mí</a></li>
-                        <li><a href="#servicios">Servicios</a></li>
-                        <li><a href="#proyectos">Proyectos</a></li>
-                        <li><a href="#contacto">Contacto</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-social">
-                    <h4>Sígueme</h4>
-                    <div class="social-links">
-                        <a href="https://github.com/JonasValCas" class="social-link" target="_blank"
-                            rel="noopener noreferrer">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/in/jonathan-valdivia-castillo-contadev/" class="social-link" target="_blank"
-                            rel="noopener noreferrer">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a href="https://whatsapp.com/channel/0029VbCxqYp6buMB04dsAU37" class="social-link" target="_blank"
-                            rel="noopener noreferrer">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <p>&copy; 2024 JonasTox. Todos los derechos reservados.</p>
-                <p>Hecho con <i class="fas fa-heart"></i> y mucho café</p>
-            </div>
-        </div>
-    </footer>
-
-    <a href="https://whatsapp.com/channel/0029VbCxqYp6buMB04dsAU37" class="whatsapp-float" target="_blank" rel="noopener noreferrer"
-        title="Escríbeme por WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
-    <script src="js/main.js"></script>
+    <footer class="footer"><div class="container footer-main"><a class="brand" href="#inicio"><span class="brand-mark">jv<span>.</span></span><span class="brand-name">Jonathan Valdivia<span>CRITERIO FINANCIERO. SOLUCIONES DIGITALES.</span></span></a><a class="text-link" href="assets/docs/Jonathan-Valdivia-CV.pdf" download>Descargar currículum <svg class="icon"><use href="#i-download"/></svg></a><a class="back-top" href="#inicio" aria-label="Volver al inicio"><svg class="icon"><use href="#i-arrow"/></svg></a></div><div class="container footer-bottom"><p>© <span id="year">2026</span> Jonathan Eduardo Valdivia Castillo.</p><span>JonasTox / Digital Wave</span><button class="copy-email" id="copy-email" type="button"><svg class="icon"><use href="#i-copy"/></svg><span>Copiar correo</span></button></div><p class="sr-only" id="copy-status" role="status" aria-live="polite"></p></footer>
 </body>
-
 </html>

@@ -1,238 +1,126 @@
 (() => {
     'use strict';
 
-    /* ============================================
-       DOM References
-       ============================================ */
-    const header = document.getElementById('header');
-    const navMenu = document.getElementById('nav-menu');
-    const navToggle = document.getElementById('nav-toggle');
-    const navClose = document.getElementById('nav-close');
-    const navLinks = document.querySelectorAll('.nav-link');
+    const root = document.documentElement;
+    root.classList.add('js');
     const themeToggle = document.getElementById('theme-toggle');
-    const themeIcon = document.getElementById('theme-icon');
-    const contactForm = document.getElementById('contact-form');
-    const revealElements = document.querySelectorAll('.reveal');
-
-    /* ============================================
-       Particles Background
-       ============================================ */
-    const createParticles = () => {
-        const container = document.getElementById('particles');
-        if (!container) return;
-
-        const particleCount = window.innerWidth < 768 ? 30 : 60;
-
-        for (let i = 0; i < particleCount; i++) {
-            const particle = document.createElement('div');
-            particle.classList.add('particle');
-
-            const size = Math.random() * 4 + 2;
-            const x = Math.random() * 100;
-            const duration = Math.random() * 15 + 10;
-            const delay = Math.random() * 10;
-
-            particle.style.cssText = `
-                width: ${size}px;
-                height: ${size}px;
-                left: ${x}%;
-                animation-duration: ${duration}s;
-                animation-delay: ${delay}s;
-                opacity: ${Math.random() * 0.3 + 0.1};
-            `;
-
-            container.appendChild(particle);
-        }
-    };
-
-    /* ============================================
-       Mobile Menu
-       ============================================ */
-    const toggleMenu = (open) => {
-        navMenu.classList.toggle('active', open);
-        document.body.style.overflow = open ? 'hidden' : '';
-    };
-
-    if (navToggle) {
-        navToggle.addEventListener('click', () => toggleMenu(true));
-    }
-
-    if (navClose) {
-        navClose.addEventListener('click', () => toggleMenu(false));
-    }
-
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            if (window.innerWidth <= 768) toggleMenu(false);
-        });
-    });
-
-    document.addEventListener('click', (e) => {
-        if (window.innerWidth <= 768 &&
-            navMenu.classList.contains('active') &&
-            !navMenu.contains(e.target) &&
-            !navToggle.contains(e.target)) {
-            toggleMenu(false);
-        }
-    });
-
-    /* ============================================
-       Theme Toggle (Dark / Light Mode)
-       ============================================ */
-    const getPreferredTheme = () => {
-        const stored = localStorage.getItem('theme');
-        if (stored) return stored;
-        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-    };
+    const themeColor = document.querySelector('meta[name="theme-color"]');
+    const mediaTheme = window.matchMedia('(prefers-color-scheme: dark)');
+    let savedTheme = null;
+    try {
+        const value = localStorage.getItem('theme');
+        if (value === 'light' || value === 'dark') savedTheme = value;
+    } catch { /* The page remains usable when storage is blocked. */ }
 
     const applyTheme = (theme) => {
-        const isDark = theme === 'dark';
-        document.documentElement.setAttribute('data-theme', theme);
-        themeIcon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
-        localStorage.setItem('theme', theme);
+        const dark = theme === 'dark';
+        root.dataset.theme = theme;
+        themeToggle.setAttribute('aria-label', dark ? 'Activar tema claro' : 'Activar tema oscuro');
+        themeToggle.setAttribute('aria-pressed', String(dark));
+        themeColor.setAttribute('content', dark ? '#111c19' : '#f7f8f5');
     };
+    applyTheme(savedTheme || (mediaTheme.matches ? 'dark' : 'light'));
+    themeToggle.addEventListener('click', () => {
+        savedTheme = root.dataset.theme === 'dark' ? 'light' : 'dark';
+        applyTheme(savedTheme);
+        try { localStorage.setItem('theme', savedTheme); } catch { /* Optional preference. */ }
+    });
+    mediaTheme.addEventListener('change', (event) => {
+        if (!savedTheme) applyTheme(event.matches ? 'dark' : 'light');
+    });
 
-    applyTheme(getPreferredTheme());
-
-    if (themeToggle) {
-        themeToggle.addEventListener('click', () => {
-            const current = document.documentElement.getAttribute('data-theme');
-            applyTheme(current === 'dark' ? 'light' : 'dark');
-        });
-    }
-
-    /* ============================================
-       Header Hide / Show on Scroll
-       ============================================ */
-    let lastScroll = 0;
-
-    const handleHeaderScroll = () => {
-        const currentScroll = window.scrollY;
-        const heroHeight = document.querySelector('.hero')?.offsetHeight || 500;
-
-        if (currentScroll > heroHeight) {
-            header.classList.toggle('header-hidden', currentScroll > lastScroll);
-        } else {
-            header.classList.remove('header-hidden');
+    const navToggle = document.getElementById('nav-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    const mobileQuery = window.matchMedia('(max-width: 760px)');
+    const isMenuOpen = () => navToggle.getAttribute('aria-expanded') === 'true';
+    const setMenu = (open, returnFocus = false) => {
+        navToggle.setAttribute('aria-expanded', String(open));
+        navToggle.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+        navMenu.classList.toggle('open', open);
+        document.body.classList.toggle('menu-open', open && mobileQuery.matches);
+        if (returnFocus) navToggle.focus();
+    };
+    navToggle.addEventListener('click', () => setMenu(!isMenuOpen()));
+    navMenu.addEventListener('click', (event) => {
+        if (event.target.closest('a')) setMenu(false);
+    });
+    document.addEventListener('click', (event) => {
+        if (isMenuOpen() && !document.getElementById('header').contains(event.target)) setMenu(false);
+    });
+    document.addEventListener('keydown', (event) => {
+        if (!isMenuOpen() || !mobileQuery.matches) return;
+        if (event.key === 'Escape') setMenu(false, true);
+        if (event.key === 'Tab') {
+            const focusable = [...document.querySelectorAll('#header a, #header button')]
+                .filter((element) => element.getClientRects().length > 0);
+            const first = focusable[0];
+            const last = focusable[focusable.length - 1];
+            if (event.shiftKey && document.activeElement === first) {
+                event.preventDefault();
+                last.focus();
+            } else if (!event.shiftKey && document.activeElement === last) {
+                event.preventDefault();
+                first.focus();
+            }
         }
+    });
+    mobileQuery.addEventListener('change', () => setMenu(false));
 
-        lastScroll = currentScroll;
-    };
-
-    /* ============================================
-       Active Nav Link Highlighting
-       ============================================ */
-    const updateActiveLink = () => {
-        const sections = document.querySelectorAll('section[id]');
-        const scrollPos = window.scrollY + 150;
-
-        sections.forEach(section => {
-            const top = section.offsetTop;
-            const height = section.offsetHeight;
-            const id = section.getAttribute('id');
-            const link = document.querySelector(`.nav-link[href="#${id}"]`);
-
-            if (link) {
-                link.classList.toggle('active-link', scrollPos >= top && scrollPos < top + height);
-            }
-        });
-    };
-
-    /* ============================================
-       Scroll Reveal Animations
-       ============================================ */
-    const revealOnScroll = () => {
-        const windowHeight = window.innerHeight;
-        const revealPoint = 120;
-
-        revealElements.forEach(el => {
-            const top = el.getBoundingClientRect().top;
-            if (top < windowHeight - revealPoint) {
-                el.classList.add('visible');
-            }
-        });
-    };
-
-    /* ============================================
-       Contact Form Handler
-       ============================================ */
-    if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-
-            const btn = contactForm.querySelector('.btn');
-            const originalText = btn.innerHTML;
-
-            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
-            btn.disabled = true;
-
-            // Simulate sending
-            setTimeout(() => {
-                btn.innerHTML = '<i class="fas fa-check-circle"></i> Mensaje enviado!';
-                btn.style.background = 'linear-gradient(135deg, #00e676, #00c853)';
-
-                setTimeout(() => {
-                    btn.innerHTML = originalText;
-                    btn.disabled = false;
-                    btn.style.background = '';
-                    contactForm.reset();
-                }, 2500);
-            }, 1500);
-        });
-
-        // Auto-resize textarea
-        const textarea = contactForm.querySelector('textarea');
-        if (textarea) {
-            textarea.addEventListener('input', () => {
-                textarea.style.height = 'auto';
-                textarea.style.height = Math.min(textarea.scrollHeight, 300) + 'px';
+    const navLinks = [...document.querySelectorAll('.nav-link')];
+    const sections = [...document.querySelectorAll('main section[id]')];
+    if ('IntersectionObserver' in window) {
+        const visibleSections = new Set();
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) visibleSections.add(entry.target);
+                else visibleSections.delete(entry.target);
             });
-        }
+            const active = sections.find((section) => visibleSections.has(section));
+            navLinks.forEach((link) => {
+                const selected = !!active && link.hash === '#' + active.id;
+                link.classList.toggle('active', selected);
+                if (selected) link.setAttribute('aria-current', 'location');
+                else link.removeAttribute('aria-current');
+            });
+        }, { rootMargin: '-15% 0px -50% 0px', threshold: 0 });
+        sections.forEach((section) => observer.observe(section));
     }
 
-    /* ============================================
-       Smooth Scroll Enhancement
-       ============================================ */
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', (e) => {
-            const targetId = anchor.getAttribute('href');
-            if (targetId === '#') return;
-
-            const target = document.querySelector(targetId);
-            if (target) {
-                e.preventDefault();
-                const headerOffset = 70;
-                const top = target.offsetTop - headerOffset;
-                window.scrollTo({ top, behavior: 'smooth' });
-            }
-        });
+    const contactForm = document.getElementById('contact-form');
+    const formStatus = document.getElementById('form-status');
+    contactForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        if (!contactForm.reportValidity()) return;
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const subject = document.getElementById('subject').value;
+        const message = document.getElementById('message').value.trim();
+        if (!name || !message) {
+            formStatus.textContent = 'Completa tu nombre y un mensaje para preparar el correo.';
+            document.getElementById(!name ? 'name' : 'message').focus();
+            return;
+        }
+        const body = 'Hola Jonathan,\n\n' + message + '\n\nNombre: ' + name + '\nCorreo de contacto: ' + email;
+        const mailto = 'mailto:contaled.vct@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+        window.location.href = mailto;
+        formStatus.textContent = 'Continúa el envío en tu aplicación de correo. Si no se abre, puedes escribirme directamente o contactarme por WhatsApp.';
     });
 
-    /* ============================================
-       Event Listeners
-       ============================================ */
-    window.addEventListener('scroll', () => {
-        handleHeaderScroll();
-        updateActiveLink();
-        revealOnScroll();
-    }, { passive: true });
-
-    window.addEventListener('load', () => {
-        createParticles();
-        revealOnScroll();
-        updateActiveLink();
+    const copyButton = document.getElementById('copy-email');
+    const copyStatus = document.getElementById('copy-status');
+    let copyTimer;
+    copyButton.addEventListener('click', async () => {
+        try {
+            await navigator.clipboard.writeText('contaled.vct@gmail.com');
+            copyButton.querySelector('span').textContent = 'Correo copiado';
+            copyStatus.textContent = 'Correo copiado: contaled.vct@gmail.com';
+            clearTimeout(copyTimer);
+            copyTimer = setTimeout(() => { copyButton.querySelector('span').textContent = 'Copiar correo'; }, 3000);
+        } catch {
+            copyStatus.textContent = 'Puedes escribir a contaled.vct@gmail.com.';
+            copyButton.querySelector('span').textContent = 'contaled.vct@gmail.com';
+        }
     });
 
-    window.addEventListener('resize', () => {
-        // Re-create particles on resize with delay
-        clearTimeout(window._particleTimer);
-        window._particleTimer = setTimeout(() => {
-            const container = document.getElementById('particles');
-            if (container) {
-                container.innerHTML = '';
-                createParticles();
-            }
-        }, 500);
-    });
-
+    document.getElementById('year').textContent = String(new Date().getFullYear());
 })();
